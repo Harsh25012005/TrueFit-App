@@ -1,0 +1,11 @@
+# Docs and generated files are not reformatted by `npm run format`.
+*.md
+package-lock.json
+node_modules/
+android/
+.expo/
+dist/
+coverage/
+src/types/supabase.ts
+src/db/migrations/
+supabase/migrations/

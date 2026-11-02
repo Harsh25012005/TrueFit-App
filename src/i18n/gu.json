@@ -1,0 +1,57 @@
+{
+  "common": {
+    "save": "સેવ કરો",
+    "cancel": "રદ કરો",
+    "close": "બંધ કરો",
+    "tryAgain": "ફરી પ્રયાસ કરો",
+    "undo": "પાછું લો",
+    "loading": "લોડ થઈ રહ્યું છે…",
+    "search": "શોધો",
+    "increase": "વધારો",
+    "decrease": "ઘટાડો",
+    "back": "પાછળ"
+  },
+  "errors": {
+    "generic": "કંઈક ખોટું થયું",
+    "VALIDATION_FAILED": "કૃપા કરી ચિહ્નિત ખાના તપાસો.",
+    "UNAUTHENTICATED": "કૃપા કરી ફરી સાઇન ઇન કરો.",
+    "PLAN_REQUIRED": "તમારો પ્લાન પૂરો થયો છે. નવા ગ્રાહકો અને ઓર્ડર ઉમેરવા અપગ્રેડ કરો.",
+    "FORBIDDEN": "તમે આ કરી શકતા નથી.",
+    "NOT_FOUND": "તે મળ્યું નહીં.",
+    "CONFLICT": "આ બીજે ક્યાંક બદલાયું છે. ફરી પ્રયાસ કરો.",
+    "BUSINESS_RULE": "આ અત્યારે થઈ શકે એમ નથી.",
+    "RATE_LIMITED": "ઘણા પ્રયાસ થયા. એક મિનિટ રાહ જુઓ.",
+    "INTERNAL": "કંઈક ખોટું થયું",
+    "UPSTREAM_UNAVAILABLE": "સેવા વ્યસ્ત છે. થોડી વારમાં ફરી પ્રયાસ કરો.",
+    "NETWORK_OFFLINE": "ઇન્ટરનેટ નથી. ફેરફારો આ ફોનમાં સાચવ્યા છે."
+  },
+  "language": {
+    "en": "English",
+    "gu": "ગુજરાતી",
+    "hi": "हिन्दी"
+  },
+  "status": {
+    "received": "મળેલ",
+    "ready": "તૈયાર",
+    "delivered": "આપી દીધું",
+    "cancelled": "રદ"
+  },
+  "pin": {
+    "deleteDigit": "અંક ભૂંસો",
+    "enteredDigits": "4 માંથી {{count}} અંક લખ્યા",
+    "useFingerprint": "ફિંગરપ્રિન્ટ વાપરો"
+  },
+  "tabs": {
+    "home": "હોમ",
+    "orders": "ઓર્ડર",
+    "customers": "ગ્રાહકો",
+    "more": "વધુ",
+    "create": "નવું બનાવો"
+  },
+  "sheet": {
+    "discardTitle": "ફેરફારો કાઢી નાખવા?",
+    "discardMessage": "તમે લખેલું બધું જતું રહેશે.",
+    "discard": "કાઢી નાખો",
+    "keepEditing": "લખવાનું ચાલુ રાખો"
+  }
+}

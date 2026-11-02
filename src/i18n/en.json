@@ -1,0 +1,57 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "tryAgain": "Try again",
+    "undo": "Undo",
+    "loading": "Loading…",
+    "search": "Search",
+    "increase": "Increase",
+    "decrease": "Decrease",
+    "back": "Back"
+  },
+  "errors": {
+    "generic": "Something went wrong",
+    "VALIDATION_FAILED": "Please check the highlighted fields.",
+    "UNAUTHENTICATED": "Please sign in again.",
+    "PLAN_REQUIRED": "Your plan has ended. Upgrade to add new customers and orders.",
+    "FORBIDDEN": "You can't do that.",
+    "NOT_FOUND": "We couldn't find that.",
+    "CONFLICT": "This was changed somewhere else. Please try again.",
+    "BUSINESS_RULE": "This can't be done right now.",
+    "RATE_LIMITED": "Too many tries. Please wait a minute.",
+    "INTERNAL": "Something went wrong",
+    "UPSTREAM_UNAVAILABLE": "Service is busy. Please try again soon.",
+    "NETWORK_OFFLINE": "No internet. Changes are saved on this phone."
+  },
+  "language": {
+    "en": "English",
+    "gu": "ગુજરાતી",
+    "hi": "हिन्दी"
+  },
+  "status": {
+    "received": "Received",
+    "ready": "Ready",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
+  },
+  "pin": {
+    "deleteDigit": "Delete digit",
+    "enteredDigits": "{{count}} of 4 digits entered",
+    "useFingerprint": "Use fingerprint"
+  },
+  "tabs": {
+    "home": "Home",
+    "orders": "Orders",
+    "customers": "Customers",
+    "more": "More",
+    "create": "Create"
+  },
+  "sheet": {
+    "discardTitle": "Discard changes?",
+    "discardMessage": "What you entered will be lost.",
+    "discard": "Discard",
+    "keepEditing": "Keep editing"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "common": {
+    "save": "सेव करें",
+    "cancel": "रद्द करें",
+    "close": "बंद करें",
+    "tryAgain": "फिर से कोशिश करें",
+    "undo": "वापस लें",
+    "loading": "लोड हो रहा है…",
+    "search": "खोजें",
+    "increase": "बढ़ाएं",
+    "decrease": "घटाएं",
+    "back": "पीछे"
+  },
+  "errors": {
+    "generic": "कुछ गलत हो गया",
+    "VALIDATION_FAILED": "कृपया चिह्नित खाने जाँचें।",
+    "UNAUTHENTICATED": "कृपया फिर से साइन इन करें।",
+    "PLAN_REQUIRED": "आपका प्लान खत्म हो गया है। नए ग्राहक और ऑर्डर जोड़ने के लिए अपग्रेड करें।",
+    "FORBIDDEN": "आप यह नहीं कर सकते।",
+    "NOT_FOUND": "यह नहीं मिला।",
+    "CONFLICT": "यह कहीं और बदला गया है। फिर से कोशिश करें।",
+    "BUSINESS_RULE": "यह अभी नहीं हो सकता।",
+    "RATE_LIMITED": "बहुत ज़्यादा कोशिशें। एक मिनट रुकें।",
+    "INTERNAL": "कुछ गलत हो गया",
+    "UPSTREAM_UNAVAILABLE": "सेवा व्यस्त है। थोड़ी देर में फिर कोशिश करें।",
+    "NETWORK_OFFLINE": "इंटरनेट नहीं है। बदलाव इस फ़ोन में सेव हैं।"
+  },
+  "language": {
+    "en": "English",
+    "gu": "ગુજરાતી",
+    "hi": "हिन्दी"
+  },
+  "status": {
+    "received": "मिला",
+    "ready": "तैयार",
+    "delivered": "दे दिया",
+    "cancelled": "रद्द"
+  },
+  "pin": {
+    "deleteDigit": "अंक मिटाएं",
+    "enteredDigits": "4 में से {{count}} अंक डाले",
+    "useFingerprint": "फ़िंगरप्रिंट इस्तेमाल करें"
+  },
+  "tabs": {
+    "home": "होम",
+    "orders": "ऑर्डर",
+    "customers": "ग्राहक",
+    "more": "और",
+    "create": "नया बनाएं"
+  },
+  "sheet": {
+    "discardTitle": "बदलाव हटाएं?",
+    "discardMessage": "आपने जो लिखा है वह मिट जाएगा।",
+    "discard": "हटाएं",
+    "keepEditing": "लिखना जारी रखें"
+  }
+}

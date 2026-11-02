@@ -36,6 +36,7 @@ Rules: **no gradients and no shadows anywhere**, with one exception: the AI grad
 | `warning` | Due today, trial ending, low-priority alerts | `#B45309` | `#F2B25C` |
 | `warning-subtle` | Warning banner background | `#FEF3E2` | `#2E2414` |
 | `error` | Errors, late, destructive actions | `#C0392B` | `#EF7D70` |
+| `on-error` | Text on `error` fill (tab-bar late badge) | `#FFFFFF` | `#0E0E10` |
 | `error-subtle` | Error banner background | `#FBEDEB` | `#2E1A18` |
 | `overlay` | Behind sheets and dialogs | `rgba(10,12,18,0.50)` | `rgba(0,0,0,0.60)` |
 | `ai-gradient` (V2 only) | AI button, AI icon tile, AI send button | `#047D55 → #14A87A → #3B82F6 → #8B5CF6` (135°) | `#2FC98F → #38BDF8 → #A78BFA` |
@@ -132,7 +133,7 @@ Height 48 (textarea min 96), radius 4, 1 px `border`, bg `surface`, padding 0/14
 | Loading (async check, e.g. OTP send) | trailing 16 dp spinner |
 | Error | border `error` + 3 dp `error-subtle` halo; message below in `error` `caption`, starts with an icon; field shakes 4 dp once (reduced-motion: no shake) |
 
-Variants: **Phone** (fixed "+91" prefix, numeric keyboard, 10 digits); **Money** ("₹" prefix, numeric, no spinners); **Measurement** (decimal keypad, unit suffix "in/cm", `returnKeyType="next"`, Enter moves to next field); **Search** (leading search icon, trailing mic button 40×40); **Rate box** (compact 88 wide, bg `surface-muted`, no border until focus).
+Variants: **Phone** (fixed "+91" prefix, numeric keyboard, 10 digits); **Money** ("₹" prefix, numeric, no spinners); **Measurement** (decimal keypad, unit suffix "in/cm", `returnKeyType="next"`, Enter moves to next field); **Search** (leading search icon, trailing mic button 40×40 — **V2 only** (PRD V10); hidden in MVP); **Rate box** (compact 88 wide, bg `surface-muted`, no border until focus).
 
 ### 6.3 Selection controls
 - **Chip** (filter): height 36, radius 4, 1 px `border`, text `text-muted` + count. Selected: bg `secondary`, text `on-secondary`. Disabled: `text-faint`.
@@ -152,7 +153,7 @@ States: pressable cards — pressed bg `surface-muted` + scale 0.99; focus ring;
 
 ### 6.6 Navigation
 - **Top app bar**: height 56 (root tabs 64 with `title-1`), bg `background`, bottom border appears after scrolling. Left: back (non-root). Right: max 2 icon buttons. **Home** header: logo mark (32) + greeting `title-3` + "Shop · date" `caption`; right: search, notifications. No search icon on other screens.
-- **Bottom tab bar (floating)**: 12 dp from screen edges and bottom (+ safe area). Left group (bg `surface`, 1 px `border`, radius 4, padding 4) with 4 tabs: **Home, Orders, Customers, More** (icon 22 + label `caption`). Active tab: bg `primary-subtle`, icon + label `primary`, weight 600. Inactive: `text-faint`. Badge (late orders): 18 dp, radius 2, bg `error`, white 11 dp text. Right: separate **Add** button 64×64, bg `primary`, icon `on-primary` 28, radius 4. Pressed: scale 0.94. Focus ring on each.
+- **Bottom tab bar (floating)**: 12 dp from screen edges and bottom (+ safe area). Left group (bg `surface`, 1 px `border`, radius 4, padding 4) with 4 tabs: **Home, Orders, Customers, More** (icon 22 + label `caption`). Active tab: bg `primary-subtle`, icon + label `primary`, weight 600. Inactive: `text-muted` (not `text-faint`: labels need 4.5:1). Badge (late orders): 18 dp, radius 2, bg `error`, `on-error` 12 dp text (`overline` size, no uppercase). Right: separate **Add** button 64×64, bg `primary`, icon `on-primary` 28, radius 4. Pressed: scale 0.94. Focus ring on each.
 - **Sidebar (wide)**: 240 wide, `surface`, right border; logo + "TrueFit" top, **Create** primary button, then tabs as rows (active = `primary-subtle`).
 
 ### 6.7 Lists & tables

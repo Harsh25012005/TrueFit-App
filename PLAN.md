@@ -8,10 +8,10 @@ Legend: **Files** = main files touched · **Verify** = how to prove it works · 
 
 ## Phase 0 — Foundation (runnable empty app)
 - [ ] **0.1 Scaffold Expo app config** — Files: `app.config.ts`, `babel.config.js`, `metro.config.js`, `tsconfig.json`, `app/_layout.tsx`, `app/index.tsx`. Verify: `npm run android` opens a blank screen. Deps: —
-- [ ] **0.2 Lint/format/typecheck** — Files: `eslint.config.js`, `.prettierrc`. Verify: `npm run lint && npm run typecheck` pass. Deps: 0.1
+- [x] **0.2 Lint/format/typecheck** — Files: `eslint.config.js`, `.prettierrc`. Verify: `npm run lint && npm run typecheck` pass. Deps: 0.1
 - [ ] **0.3 Theme tokens + NativeWind** — Files: `tailwind.config.js`, `global.css`, `src/theme/*`. Verify: test screen shows light/dark colors exactly as DESIGN.md §2. Deps: 0.1
 - [ ] **0.4 Fonts + icons** — Files: `app/_layout.tsx`, `src/components/ui/Icon.tsx`. Verify: Plus Jakarta Sans and Gujarati text render; Tabler icon shows. Deps: 0.3
-- [ ] **0.5 i18n** — Files: `src/i18n/*`. Verify: switching language changes a test string in EN/GU/HI; unit test for missing keys. Deps: 0.1
+- [x] **0.5 i18n** — Files: `src/i18n/*`. Verify: switching language changes a test string in EN/GU/HI; unit test for missing keys. Deps: 0.1
 - [ ] **0.6 UI primitives batch 1** (Button, Input, Card, ListRow, Chip, Toast, EmptyState, Skeleton) — Files: `src/components/ui/*`. Verify: component tests for each state; visual check on a dev "Kitchen sink" screen (dev only). Deps: 0.3
 - [ ] **0.7 UI primitives batch 2** (Sheet, Dialog, Segmented, Stepper, Switch, StatusPill, TopBar, TabBar, PinPad, MoneyInput, PhoneInput) — Verify: as 0.6. Deps: 0.6
 - [ ] **0.8 Errors, logger, Sentry** — Files: `src/lib/errors.ts`, `logger.ts`, `sentry.ts`. Verify: unit tests map sample Supabase errors to `AppError`; test crash appears in Sentry (dev project). Deps: 0.1

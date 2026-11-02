@@ -11,6 +11,7 @@
 | Styling | **NativeWind 4** (Tailwind 3.4 classes) + `src/theme/tokens.ts` | Tailwind is the team's existing skill; tokens enforce DESIGN.md colours/sizes. |
 | Local database | **expo-sqlite** + **Drizzle ORM** | Offline-first: every screen reads from SQLite instantly; Drizzle gives typed queries and live queries. |
 | Sync | Custom **outbox + pull-cursor** sync over Supabase REST | Owner-only data and one main phone make last-write-wins sync small and predictable without another vendor. |
+| Icons | **Tabler Icons** (`@tabler/icons-react-native`, per-icon imports) over `react-native-svg` | DESIGN.md §5 icon set; per-icon imports keep the bundle small. |
 | UI state | **Zustand 5** | Tiny store for session, UI flags and sync status; no boilerplate. |
 | Forms & validation | **react-hook-form + zod 4** | Fast forms; one zod schema reused for UI, local DB writes and API payloads. |
 | i18n | **i18next + react-i18next + expo-localization** | Mature, supports Gujarati/Hindi plurals and runtime language switch. |
@@ -47,6 +48,7 @@ truefit/
 │   │   ├── shop-setup.tsx            # S9
 │   │   └── set-pin.tsx               # S10
 │   ├── lock.tsx                      # S11 PIN unlock
+│   ├── (dev)/                        # __DEV__ only: tokens.tsx (colour check), kitchen-sink.tsx
 │   └── (app)/
 │       ├── _layout.tsx               # Requires session + shop; starts sync; paywall gate
 │       ├── (tabs)/
@@ -76,6 +78,7 @@ truefit/
 │   │   │   ├── Card.tsx  ListRow.tsx  Chip.tsx  Segmented.tsx  Stepper.tsx  Switch.tsx
 │   │   │   ├── Sheet.tsx  Dialog.tsx  Toast.tsx  Banner.tsx  EmptyState.tsx  Skeleton.tsx
 │   │   │   ├── StatusPill.tsx  Avatar.tsx  TopBar.tsx  TabBar.tsx  PinPad.tsx  Icon.tsx
+│   │   │   ├── Text.tsx (fonts per script)  FocusRing.tsx  useInteraction.ts  motion.ts
 │   │   │   └── index.ts
 │   │   ├── orders/                   # OrderRow, OrderWizard/*, PaymentSheet, DeliverDialog, ShareSheet
 │   │   ├── customers/                # CustomerRow, CustomerSheet, CustomerPicker
@@ -115,7 +118,7 @@ truefit/
 │   ├── i18n/  (index.ts, en.json, gu.json, hi.json)
 │   ├── theme/ (tokens.ts, colors.ts, typography.ts)
 │   ├── stores/ (session.store.ts, ui.store.ts, sync.store.ts)
-│   └── types/ (supabase.ts — generated, domain.ts)
+│   └── types/ (supabase.ts — generated, domain.ts, tabler-icons.d.ts)
 ├── supabase/
 │   ├── config.toml
 │   ├── migrations/                   # SQL migrations (DATABASE.md §9 order)

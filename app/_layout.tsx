@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import { View } from 'react-native';
 
 import { ToastHost } from '@/components/ui';
+import { useDeviceMigrations } from '@/db/client';
+import { logger } from '@/lib/logger';
 import { initSentry, wrapRoot } from '@/lib/sentry';
 import { themeStyle, useThemeScheme } from '@/theme/colors';
 import { navigationTheme } from '@/theme/navigation';
@@ -20,7 +22,15 @@ SplashScreen.preventAutoHideAsync();
 function RootLayout() {
   const scheme = useThemeScheme();
   const [fontsLoaded, fontError] = useFonts(FONT_ASSETS);
-  const ready = fontsLoaded || fontError !== null;
+  const migrations = useDeviceMigrations();
+  const fontsReady = fontsLoaded || fontError !== null;
+  const dbReady = migrations.success || migrations.error !== undefined;
+  const ready = fontsReady && dbReady;
+
+  useEffect(() => {
+    if (migrations.success) logger.info('Device DB ready');
+    if (migrations.error) logger.error('Device DB migration failed', migrations.error);
+  }, [migrations.success, migrations.error]);
 
   useEffect(() => {
     if (ready) SplashScreen.hideAsync();

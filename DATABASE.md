@@ -1,11 +1,12 @@
 # TrueFit — Database Design
 
-> Reads from **PRD.md** and **ARCHITECTURE.md**. Server: **Supabase Postgres 15** (schema `public`). Device: **SQLite** (Drizzle) mirrors the same tables and columns for offline use (SQLite types: `uuid`→TEXT, `timestamptz`/`date`→TEXT ISO, `numeric`→REAL, `boolean`→INTEGER, `jsonb`→TEXT).
+> Reads from **PRD.md** and **ARCHITECTURE.md**. Server: **Supabase Postgres 17** (schema `public`). Device: **SQLite** (Drizzle) mirrors the same tables and columns for offline use (SQLite types: `uuid`→TEXT, `timestamptz`/`date`→TEXT ISO, `numeric`→REAL, `boolean`→INTEGER, `jsonb`→TEXT).
 
 ## 1. Conventions
 - Table names: plural `snake_case`. Columns `snake_case`. FK columns `<singular>_id`.
 - Primary keys: `id uuid` — generated **on the device** (UUID v4) so rows can be created offline; server default `gen_random_uuid()` for server-created rows.
 - Every table has `created_at timestamptz not null default now()` and `updated_at timestamptz not null default now()`. A trigger `set_updated_at()` sets `updated_at = now()` on every insert and update (server time is the sync cursor).
+- **Last-write-wins guard:** on UPDATE, if the incoming `updated_at` is older than the stored one (a stale offline edit), `set_updated_at()` returns the stored row unchanged (the write is skipped, not an error); the client then pulls the server version (API.md §3.2). Writes that don't send `updated_at` (e.g. a PATCH) keep the stored value, so they are never treated as stale.
 - **Soft delete:** synced business tables have `deleted_at timestamptz null`. Rows are never hard-deleted by the app (needed for offline sync tombstones and Undo). Hard delete happens only in account deletion (cascade) and data-retention jobs.
 - Every business row carries `shop_id` (denormalised) so Row Level Security is a single indexed check.
 - Money: `integer` rupees (no paise in MVP). Measurements: `numeric(6,2)` stored in **inches** (cm converted for display only).
@@ -345,7 +346,7 @@ Read-only mode after the plan expires: customers/orders inserts fail (`shop_can_
 
 **Storage (V2):** bucket `order-photos` is private; policy: object path first segment must equal `current_shop_id()::text` for select/insert/update; delete denied (soft delete in table).
 
-**Triggers:** `set_updated_at` (all tables), `assert_same_shop` (child rows), `on_auth_user_created` (profile), `limit_photos_per_item` (V2), `protect_shop_columns` (owner_id / next_order_no not client-editable).
+**Triggers:** `set_updated_at` (all tables; includes the last-write-wins guard, §1), `assert_same_shop` (child rows), `on_auth_user_created` (profile), `limit_photos_per_item` (V2), `protect_shop_columns` (owner_id / next_order_no not client-editable).
 
 **RPC functions (security definer, checked with `auth.uid()`):**
 - `create_shop(p_shop_name, p_owner_name, p_phone, p_language, p_with_sample boolean)` → creates profile update, shop, trial subscription, Shirt + Pant with default fields, optional sample data; returns shop.

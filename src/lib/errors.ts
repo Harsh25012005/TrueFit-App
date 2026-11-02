@@ -101,6 +101,9 @@ const POSTGRES_CODES: Record<string, ErrorCode> = {
   '23505': 'CONFLICT', // unique
   '23503': 'CONFLICT', // foreign key
   P0001: 'BUSINESS_RULE', // raised by RPCs
+  P0002: 'NOT_FOUND', // RPC: customer / cloth / order not found
+  PT402: 'PLAN_REQUIRED', // RPC: plan expired (PostgREST returns HTTP 402)
+  '28000': 'UNAUTHENTICATED', // RPC called without a session
   '57014': 'INTERNAL', // statement timeout
 };
 

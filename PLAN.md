@@ -9,10 +9,10 @@ Legend: **Files** = main files touched · **Verify** = how to prove it works · 
 ## Phase 0 — Foundation (runnable empty app)
 - [ ] **0.1 Scaffold Expo app config** — Files: `app.config.ts`, `babel.config.js`, `metro.config.js`, `tsconfig.json`, `app/_layout.tsx`, `app/index.tsx`. Verify: `npm run android` opens a blank screen. Deps: —
 - [x] **0.2 Lint/format/typecheck** — Files: `eslint.config.js`, `.prettierrc`. Verify: `npm run lint && npm run typecheck` pass. Deps: 0.1
-- [ ] **0.3 Theme tokens + NativeWind** — Files: `tailwind.config.js`, `global.css`, `src/theme/*`. Verify: test screen shows light/dark colors exactly as DESIGN.md §2. Deps: 0.1
-- [ ] **0.4 Fonts + icons** — Files: `app/_layout.tsx`, `src/components/ui/Icon.tsx`. Verify: Plus Jakarta Sans and Gujarati text render; Tabler icon shows. Deps: 0.3
+- [x] **0.3 Theme tokens + NativeWind** — Files: `tailwind.config.js`, `global.css`, `src/theme/*`. Verify: test screen shows light/dark colors exactly as DESIGN.md §2. Deps: 0.1
+- [x] **0.4 Fonts + icons** — Files: `app/_layout.tsx`, `src/components/ui/Icon.tsx`. Verify: Plus Jakarta Sans and Gujarati text render; Tabler icon shows. Deps: 0.3
 - [x] **0.5 i18n** — Files: `src/i18n/*`. Verify: switching language changes a test string in EN/GU/HI; unit test for missing keys. Deps: 0.1
-- [ ] **0.6 UI primitives batch 1** (Button, Input, Card, ListRow, Chip, Toast, EmptyState, Skeleton) — Files: `src/components/ui/*`. Verify: component tests for each state; visual check on a dev "Kitchen sink" screen (dev only). Deps: 0.3
+- [x] **0.6 UI primitives batch 1** (Button, Input, Card, ListRow, Chip, Toast, EmptyState, Skeleton) — Files: `src/components/ui/*`. Verify: component tests for each state; visual check on a dev "Kitchen sink" screen (dev only). Deps: 0.3
 - [ ] **0.7 UI primitives batch 2** (Sheet, Dialog, Segmented, Stepper, Switch, StatusPill, TopBar, TabBar, PinPad, MoneyInput, PhoneInput) — Verify: as 0.6. Deps: 0.6
 - [ ] **0.8 Errors, logger, Sentry** — Files: `src/lib/errors.ts`, `logger.ts`, `sentry.ts`. Verify: unit tests map sample Supabase errors to `AppError`; test crash appears in Sentry (dev project). Deps: 0.1
 - [ ] **0.9 Jest + RNTL setup, CI** — Files: `jest` config in package.json, `.github/workflows/ci.yml`. Verify: CI runs typecheck, lint, test green. Deps: 0.2
@@ -22,12 +22,12 @@ Legend: **Files** = main files touched · **Verify** = how to prove it works · 
 
 ## Phase 1 — Database + local DB foundation
 - [ ] **1.1 Local Supabase** — Files: `supabase/config.toml`. Verify: `npm run db:start` prints URLs. Deps: 0.1
-- [ ] **1.2 Migrations 0001–0003** (enums, helpers, profiles/shops/subscriptions) — Verify: `npm run db:reset` succeeds. Deps: 1.1
-- [ ] **1.3 Migrations 0004–0007** (garments, customers, measurements, orders, payments) — Verify: `npm run db:reset`. Deps: 1.2
-- [ ] **1.4 Migration 0008 RPCs + 0009 RLS** — Verify: pgTAP tests: owner A cannot read/write owner B rows; expired plan blocks inserts. `npm run test:db`. Deps: 1.3
+- [x] **1.2 Migrations 0001–0003** (enums, helpers, profiles/shops/subscriptions) — Verify: `npm run db:reset` succeeds. Deps: 1.1
+- [x] **1.3 Migrations 0004–0007** (garments, customers, measurements, orders, payments) — Verify: `npm run db:reset`. Deps: 1.2
+- [x] **1.4 Migration 0008 RPCs + 0009 RLS** — Verify: pgTAP tests: owner A cannot read/write owner B rows; expired plan blocks inserts. `npm run test:db`. Deps: 1.3
 - [ ] **1.5 Seed** — Files: `supabase/seed.sql`. Verify: seed rows visible in Studio. Deps: 1.4
-- [ ] **1.6 Generated types** — Files: `src/types/supabase.ts`. Verify: `npm run db:types && npm run typecheck`. Deps: 1.4
-- [ ] **1.7 Drizzle SQLite schema + migrations** — Files: `src/db/schema.ts`, `src/db/client.ts`, `drizzle.config.ts`, `src/db/migrations/*`. Verify: `npm run db:local:generate`; app starts and creates tables (log). Deps: 0.1
+- [x] **1.6 Generated types** — Files: `src/types/supabase.ts`. Verify: `npm run db:types && npm run typecheck`. Deps: 1.4
+- [x] **1.7 Drizzle SQLite schema + migrations** — Files: `src/db/schema.ts`, `src/db/client.ts`, `drizzle.config.ts`, `src/db/migrations/*`. Verify: `npm run db:local:generate`; app starts and creates tables (log). Deps: 0.1
 
 **DoD:** server schema matches DATABASE.md, RLS tests pass, device DB created on launch.
 

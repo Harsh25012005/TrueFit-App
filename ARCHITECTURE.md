@@ -15,7 +15,7 @@
 | UI state | **Zustand 5** | Tiny store for session, UI flags and sync status; no boilerplate. |
 | Forms & validation | **react-hook-form + zod 4** | Fast forms; one zod schema reused for UI, local DB writes and API payloads. |
 | i18n | **i18next + react-i18next + expo-localization** | Mature, supports Gujarati/Hindi plurals and runtime language switch. |
-| Backend platform | **Supabase** (Postgres 15, Auth, Storage, Edge Functions) | Serverless: auto REST API, row-level security, auth providers and storage in one service. |
+| Backend platform | **Supabase** (Postgres 17, Auth, Storage, Edge Functions) | Serverless: auto REST API, row-level security, auth providers and storage in one service. |
 | Auth | **Supabase Auth** — email+password, phone OTP (Twilio Verify), Google (ID token) | Covers all three sign-in methods from PRD with secure JWT sessions. |
 | Server logic | **Supabase Edge Functions** (Deno, TypeScript) | Only for things the client must not do: billing webhooks, account deletion, AI proxy. |
 | Subscriptions | **Google Play Billing via RevenueCat** (`react-native-purchases`) | Play policy requires Play Billing; RevenueCat removes receipt-validation work. |

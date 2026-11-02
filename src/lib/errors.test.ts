@@ -14,6 +14,9 @@ describe('toAppError — PostgREST / Postgres (API.md §2)', () => {
     ['23505', 'CONFLICT', 409],
     ['23503', 'CONFLICT', 409],
     ['P0001', 'BUSINESS_RULE', 422],
+    ['P0002', 'NOT_FOUND', 404],
+    ['PT402', 'PLAN_REQUIRED', 402],
+    ['28000', 'UNAUTHENTICATED', 401],
   ] as const)('%s → %s', (pgCode, code, status) => {
     const err = toAppError({ code: pgCode, message: 'x', details: null, hint: null });
     expect(err).toBeInstanceOf(AppError);

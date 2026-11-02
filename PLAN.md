@@ -47,20 +47,20 @@ Legend: **Files** = main files touched · **Verify** = how to prove it works · 
 **DoD:** all three sign-in methods work on a dev build; tab shell with empty Home; e2e auth flow green.
 
 ## Phase 3 — Cloth types & fields (M4)
-- [ ] **3.1 Repo + schema** — Files: `src/features/garments/*`. Verify: unit tests for add/rename/reorder/soft-delete. Deps: 1.7
-- [ ] **3.2 Outbox enqueue on write** — Files: `src/sync/outbox.ts`. Verify: writes create outbox rows (unit test). Deps: 1.7
-- [ ] **3.3 Cloth types list + detail (S25, S26)** — Verify: add Kurta with fields; reorder; delete field. Deps: 3.1
-- [ ] **3.4 Pull on first sign-in for garments** — Files: `src/sync/pull.ts`. Verify: rows from `create_shop` appear on device. Deps: 2.7
+- [x] **3.1 Repo + schema** — Files: `src/features/garments/*`. Verify: unit tests for add/rename/reorder/soft-delete. Deps: 1.7
+- [x] **3.2 Outbox enqueue on write** — Files: `src/sync/outbox.ts`. Verify: writes create outbox rows (unit test). Deps: 1.7
+- [x] **3.3 Cloth types list + detail (S25, S26)** — Verify: add Kurta with fields; reorder; delete field. Deps: 3.1
+- [x] **3.4 Pull on first sign-in for garments** — Files: `src/sync/pull.ts`. Verify: rows from `create_shop` appear on device. Deps: 2.7
 
 **DoD:** owner manages cloth types offline; changes are queued.
 
 ## Phase 4 — Customers & measurements (M5, M6)
-- [ ] **4.1 Customer repo/schema + next book no.** — Verify: unit tests (phone format, duplicate warning). Deps: 3.2
-- [ ] **4.2 Customers tab (S14) with search + "Has dues"** — Verify: search by name/phone/book no. on 1,000 seeded rows < 100 ms. Deps: 4.1
-- [ ] **4.3 Add/edit customer sheet (S22)** — Verify: validation messages in 3 languages. Deps: 4.1
-- [ ] **4.4 Customer detail (S21)** — Verify: tabs Measurements / Orders (empty state). Deps: 4.3
-- [ ] **4.5 Measurement sheet (S23)** with enter-to-next and in/cm — Verify: values saved in inches; cm shown correctly. Deps: 4.4
-- [ ] **4.6 History (S24)** — Verify: editing creates a version; max 10 kept. Deps: 4.5
+- [x] **4.1 Customer repo/schema + next book no.** — Verify: unit tests (phone format, duplicate warning). Deps: 3.2
+- [x] **4.2 Customers tab (S14) with search + "Has dues"** — Verify: search by name/phone/book no. on 1,000 seeded rows < 100 ms. Deps: 4.1
+- [x] **4.3 Add/edit customer sheet (S22)** — Verify: validation messages in 3 languages. Deps: 4.1
+- [x] **4.4 Customer detail (S21)** — Verify: tabs Measurements / Orders (empty state). Deps: 4.3
+- [x] **4.5 Measurement sheet (S23)** with enter-to-next and in/cm — Verify: values saved in inches; cm shown correctly. Deps: 4.4
+- [x] **4.6 History (S24)** — Verify: editing creates a version; max 10 kept. Deps: 4.5
 
 **DoD:** customers and measurements fully usable offline.
 

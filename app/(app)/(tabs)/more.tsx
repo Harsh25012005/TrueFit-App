@@ -1,5 +1,5 @@
 import Constants from 'expo-constants';
-import { router } from 'expo-router';
+import { router, type Href } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
@@ -14,6 +14,13 @@ export default function MoreScreen() {
     <View style={{ flex: 1, backgroundColor: colors.background }}>
       <TopBar root title={t('more.title')} />
       <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 112 }}>
+        <SectionHeader title={t('more.shopGroup')} />
+        <Card variant="list">
+          <ListRow
+            title={t('more.clothTypes')}
+            onPress={() => router.push('/cloth-types' as Href)}
+          />
+        </Card>
         <SectionHeader title={t('more.account')} />
         <Card variant="list">
           <ListRow title={t('account.title')} onPress={() => router.push('/settings/account')} />

@@ -1,8 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
 
+import { db } from '@/db/client';
+import type { AppDb } from '@/db/types';
 import { restoreLanguage } from '@/i18n';
 import { logger } from '@/lib/logger';
+import { getSupabase } from '@/lib/supabase';
+import { pullAll } from '@/sync/pull';
 import { fetchAndCacheOwnShop, getLocalShop } from '@/features/shop/shop.repo';
 import { useSessionStore } from '@/stores/session.store';
 
@@ -17,6 +21,7 @@ import { hasPin, shouldLockAfterBackground } from './pin';
 export function useAuthBootstrap(enabled: boolean) {
   const userId = useSessionStore((s) => s.user?.userId ?? null);
   const shopState = useSessionStore((s) => s.shopState);
+  const shopId = useSessionStore((s) => s.shopId);
   const backgroundedAt = useRef<number | null>(null);
 
   // Language, session, PIN.
@@ -71,4 +76,13 @@ export function useAuthBootstrap(enabled: boolean) {
       cancelled = true;
     };
   }, [enabled, userId, shopState]);
+
+  // Download the shop's cloth types and fields (PLAN 3.4). Quiet when offline: the phone keeps
+  // what it already has, and the sync engine (Phase 5) will retry on a schedule.
+  useEffect(() => {
+    if (!enabled || !shopId) return;
+    pullAll(db as unknown as AppDb, getSupabase(), shopId).catch((e) =>
+      logger.warn('Pull failed (will retry later)', e),
+    );
+  }, [enabled, shopId]);
 }

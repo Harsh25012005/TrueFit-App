@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+
+# Expo / native
+.expo/
+dist/
+web-build/
+android/
+ios/
+*.apk
+*.aab
+*.keystore
+*.jks
+google-services.json
+credentials.json
+
+# env and secrets
+.env
+.env.*
+!.env.example
+supabase/.env.local
+supabase/.temp/
+supabase/.branches/
+
+# testing / tooling
+coverage/
+*.log
+.DS_Store
+*.tsbuildinfo

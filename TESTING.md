@@ -38,9 +38,9 @@
 |---|---|---|---|
 | A1 | Valid email sign-up → code → session | component (mock service) + e2e | Lands on shop setup |
 | A2 | Wrong password | component | Error under password, no toast |
-| A3 | Phone `12345` | unit (zod) | "Enter 10-digit mobile number" |
-| A4 | OTP resend before 60 s | component | Button disabled with timer |
-| A5 | Expired OTP | component | "Code expired — resend" |
+| A3 | Password `abcdefgh` (no digit) | unit (zod) | "Use letters and numbers" |
+| A4 | Code resend before 60 s | component | Button disabled with timer |
+| A5 | Expired code | component | "Code expired — resend" |
 | A6 | Google cancelled | component | No error shown |
 | A7 | Session persists after restart | unit (mock SecureStore) | Session restored |
 | A8 | Offline sign-in attempt | component | Offline message |
@@ -56,7 +56,7 @@
 ### M3 PIN
 | P1 | PIN stored hashed | unit | SecureStore value ≠ PIN, has salt |
 | P2 | 5 wrong PINs | component | 30 s lockout |
-| P3 | Background > 2 min | unit (fake timers) | Lock screen required |
+| P3 | Background > 5 min | unit (fake timers) | Lock screen required |
 
 ### M4 Cloth types
 | G1 | Duplicate cloth name (case-insensitive) | unit + pgTAP | Rejected |

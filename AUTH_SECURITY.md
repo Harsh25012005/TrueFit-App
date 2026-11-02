@@ -14,7 +14,7 @@
 ### 1.2 Magic link / email code (passwordless)
 `POST /auth/v1/otp {email}` → 6-digit code (template shows code, link only as a fallback with `truefit://auth/callback`). Code valid 10 min, single use. *Reason: same flow as signup verification, no password to forget.*
 
-### 1.3 Phone OTP
+### 1.3 Phone OTP — removed 2 Nov 2026 (owner decision; kept for history, not built)
 `POST /auth/v1/otp {phone:"+91…"}` → SMS via **Twilio Verify** → `verify {type:"sms"}`. Code 6 digits, 10 min, max 5 attempts. Resend after 60 s, max 5/hour per number. Android SMS Retriever / autofill supported via the `<#> … app hash` format. *Reason: most tailors prefer mobile; Verify handles DLT routes and fraud guard in India.*
 
 ### 1.4 Google (OAuth / OIDC)
@@ -59,7 +59,7 @@ Enforced by RLS policies and `shop_can_write()` (DATABASE.md §7) — **never** 
 - **CORS:** mobile app is not a browser; Edge Functions return `Access-Control-Allow-Origin` only for `https://truefit.app` (future web) and reject others; webhook has no CORS. *Reason: least exposure.*
 - **CSRF:** not applicable to bearer-token APIs (no cookies). Edge Functions only accept `Authorization: Bearer`. *Reason: CSRF needs ambient cookies.*
 - **XSS / injection:** React Native renders text, no WebView with user HTML; WhatsApp text is URL-encoded; SQL only via PostgREST/parameterised RPCs; no dynamic SQL in functions (`format('%I')` if ever needed). *Reason: removes the injection paths.*
-- **Deep links:** only `truefit://auth/callback` and `truefit://reset-password` are handled; params validated; Android App Links verified for `https://truefit.app/*`. *Reason: blocks link hijacking.*
+- **Deep links:** only `truefit://auth/callback` is handled (password reset uses a typed code, no link); params validated; Android App Links verified for `https://truefit.app/*`. *Reason: blocks link hijacking.*
 - **Transport:** HTTPS only (`usesCleartextTraffic=false` in production builds), TLS 1.2+. *Reason: no plain-text traffic.*
 - **Logging:** never log tokens, OTPs, phone numbers or measurements; Sentry `beforeSend` scrubs `Authorization`, emails, phones. *Reason: logs leak.*
 - **Account deletion:** in-app (Play policy), 7-day grace then hard delete of auth user + all shop rows + storage objects.
@@ -85,7 +85,7 @@ Enforced by RLS policies and `shop_can_write()` (DATABASE.md §7) — **never** 
 - [ ] Service role key not present in the app bundle (search the built JS for `service_role`)
 - [ ] Email confirmation ON, leaked-password protection ON, OTP expiry 600 s
 - [ ] Refresh token rotation ON, reuse interval 10 s; JWT expiry 3600 s
-- [ ] Auth rate limits configured; Twilio Verify fraud guard ON; DLT template registered
+- [ ] Auth rate limits configured; email templates show the 6-digit code
 - [ ] Custom SMTP (Resend) with SPF/DKIM; email templates show codes
 - [ ] Google OAuth: production SHA-1 (Play App Signing) added; nonce check in place
 - [ ] Redirect URL allow-list only contains `truefit://*` and `https://truefit.app/*`

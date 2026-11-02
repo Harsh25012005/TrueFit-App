@@ -258,7 +258,7 @@ otp_expiry = 600 # AUTH_SECURITY.md §1.2: codes valid 10 min
 
 [auth.sms]
 # Allow/disallow new user signups via SMS to your project.
-enable_signup = true # PRD M1: mobile OTP sign-in
+enable_signup = false # PRD M1: no phone sign-in (removed 2 Nov 2026)
 # If enabled, users need to confirm their phone number before signing in.
 enable_confirmations = false
 # Template for sending OTP to users
@@ -268,10 +268,6 @@ max_frequency = "60s" # AUTH_SECURITY.md §1.3: resend after 60 s
 
 # Use pre-defined map of phone number to OTP for testing.
 # Keys are the phone number with country code and without the + prefix.
-# Local test numbers (SETUP.md error 13). Never configured on a cloud project.
-[auth.sms.test_otp]
-919824000000 = "123456"
-919898123456 = "123456"
 
 # Configure logged in session timeouts.
 # AUTH_SECURITY.md §2: inactivity timeout 30 days, no fixed max.

@@ -10,6 +10,7 @@ import { View } from 'react-native';
 
 import { ToastHost } from '@/components/ui';
 import { useDeviceMigrations } from '@/db/client';
+import { useAuthBootstrap } from '@/features/auth/useAuthBootstrap';
 import { logger } from '@/lib/logger';
 import { initSentry, wrapRoot } from '@/lib/sentry';
 import { themeStyle, useThemeScheme } from '@/theme/colors';
@@ -26,6 +27,7 @@ function RootLayout() {
   const fontsReady = fontsLoaded || fontError !== null;
   const dbReady = migrations.success || migrations.error !== undefined;
   const ready = fontsReady && dbReady;
+  useAuthBootstrap(migrations.success);
 
   useEffect(() => {
     if (migrations.success) logger.info('Device DB ready');

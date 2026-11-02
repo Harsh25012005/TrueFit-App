@@ -6,6 +6,7 @@ import IconBell from '@tabler/icons-react-native/IconBell';
 import IconBrandGoogle from '@tabler/icons-react-native/IconBrandGoogle';
 import IconBrandWhatsapp from '@tabler/icons-react-native/IconBrandWhatsapp';
 import IconCalendar from '@tabler/icons-react-native/IconCalendar';
+import IconCash from '@tabler/icons-react-native/IconCash';
 import IconCheck from '@tabler/icons-react-native/IconCheck';
 import IconChevronDown from '@tabler/icons-react-native/IconChevronDown';
 import IconChevronRight from '@tabler/icons-react-native/IconChevronRight';
@@ -47,6 +48,7 @@ const ICONS = {
   'brand-google': IconBrandGoogle,
   'brand-whatsapp': IconBrandWhatsapp,
   calendar: IconCalendar,
+  cash: IconCash,
   check: IconCheck,
   'chevron-down': IconChevronDown,
   'chevron-right': IconChevronRight,

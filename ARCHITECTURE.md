@@ -16,7 +16,7 @@
 | Forms & validation | **react-hook-form + zod 4** | Fast forms; one zod schema reused for UI, local DB writes and API payloads. |
 | i18n | **i18next + react-i18next + expo-localization** | Mature, supports Gujarati/Hindi plurals and runtime language switch. |
 | Backend platform | **Supabase** (Postgres 17, Auth, Storage, Edge Functions) | Serverless: auto REST API, row-level security, auth providers and storage in one service. |
-| Auth | **Supabase Auth** — email+password, phone OTP (Twilio Verify), Google (ID token) | Covers all three sign-in methods from PRD with secure JWT sessions. |
+| Auth | **Supabase Auth** — email+password (6-digit email codes), Google (ID token) | Covers both PRD sign-in methods with secure JWT sessions. |
 | Server logic | **Supabase Edge Functions** (Deno, TypeScript) | Only for things the client must not do: billing webhooks, account deletion, AI proxy. |
 | Subscriptions | **Google Play Billing via RevenueCat** (`react-native-purchases`) | Play policy requires Play Billing; RevenueCat removes receipt-validation work. |
 | File storage (V2) | **Supabase Storage** (private bucket) | Same auth/RLS as the database; signed URLs for photos. |
@@ -39,13 +39,12 @@ truefit/
 │   │   ├── _layout.tsx
 │   │   ├── welcome.tsx               # S2
 │   │   ├── sign-in.tsx               # S3
-│   │   ├── phone.tsx                 # S4
-│   │   ├── verify-otp.tsx            # S5
+│   │   ├── verify-otp.tsx            # S5 email code (sign-up + password reset)
 │   │   ├── email.tsx                 # S6
 │   │   ├── forgot-password.tsx       # S7
-│   │   └── reset-password.tsx        # S8 (deep link truefit://reset-password)
+│   │   └── reset-password.tsx        # S8 (after the reset code is verified)
 │   ├── (onboarding)/
-│   │   ├── shop-setup.tsx            # S9
+│   │   ├── shop-setup.tsx            # S9 (+ Start fresh / sample data choice)
 │   │   └── set-pin.tsx               # S10
 │   ├── lock.tsx                      # S11 PIN unlock
 │   ├── (dev)/                        # __DEV__ only: tokens.tsx (colour check), kitchen-sink.tsx
@@ -53,7 +52,7 @@ truefit/
 │       ├── _layout.tsx               # Requires session + shop; starts sync; paywall gate
 │       ├── (tabs)/
 │       │   ├── _layout.tsx           # Floating tab bar / sidebar
-│       │   ├── index.tsx             # S12 Home
+│       │   ├── home.tsx              # S12 Home (not index.tsx: that would clash with app/index.tsx at "/")
 │       │   ├── orders.tsx            # S13
 │       │   ├── customers.tsx         # S14
 │       │   └── more.tsx              # S15
@@ -112,7 +111,7 @@ truefit/
 │   │   ├── supabase.ts               # createClient with SecureStore session storage
 │   │   ├── secureStorage.ts
 │   │   ├── errors.ts                 # AppError, toAppError(), error codes
-│   │   ├── money.ts  dates.ts  phone.ts  ids.ts (uuid v4)  logger.ts
+│   │   ├── money.ts  dates.ts  phone.ts  ids.ts (uuid v4)  logger.ts  preferences.ts (device prefs)
 │   │   ├── google.ts                 # Google Sign-In wrapper (ID token)
 │   │   └── sentry.ts
 │   ├── i18n/  (index.ts, en.json, gu.json, hi.json)
@@ -217,7 +216,7 @@ No global cache library is needed because SQLite is the cache.
 | `ANTHROPIC_API_KEY` | Supabase function secret (V2) | Claude API for ai-chat |
 | `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` | Provided automatically to Edge Functions | Server access (service role only inside functions) |
 
-Configured in the Supabase dashboard (not env files): Twilio Verify credentials (phone OTP), Google OAuth client, SMTP (email), redirect URLs.
+Configured in the Supabase dashboard (not env files): Google OAuth client, SMTP (email) + email templates showing the 6-digit code, redirect URLs.
 
 ## 8. Scalability and performance
 - **Expected load:** ≤ 10,000 shops in year 1; ≤ 100 orders/shop/day → ~1 M orders/year; fits a single Supabase Postgres (Pro) comfortably with the indexes in DATABASE.md.

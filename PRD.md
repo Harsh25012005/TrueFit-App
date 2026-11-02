@@ -12,7 +12,7 @@
 1. **Platform:** native Android app built with React Native (Expo). iOS later.
 2. **Data:** Supabase (serverless Postgres, Auth, Storage, Edge Functions) **plus full offline mode** — the app works with no internet and syncs when online.
 3. **Who logs in:** the **shop owner only** (one login per shop). Staff are records, not users. TrueFit is sold to many tailor shops on **paid plans**.
-4. **Sign-in:** email (+password), mobile number OTP, and Google — all three.
+4. **Sign-in:** email (+password) and Google. The 4-digit app PIN (M3) guards the phone between sign-ins. *(Mobile-number OTP sign-in removed 2 Nov 2026 — owner decision; no SMS/DLT needed.)*
 
 ---
 
@@ -72,7 +72,7 @@ Status values for orders across the product: **Received → Ready → Delivered*
 ### 4.1 MVP — must-have (ship first, Android)
 | # | Feature | Notes |
 |---|---|---|
-| M1 | **Sign-in & account** | Email + password, mobile OTP, Google. Password reset by email. Sign out. Delete account. |
+| M1 | **Sign-in & account** | Email + password, Google. Password reset with a 6-digit code sent by email. Sign out. Delete account. |
 | M2 | **Onboarding & shop setup** | 3 welcome slides, language choice (EN/ગુજરાતી/हिन्दी), shop name, owner name, phone. Start empty or with sample data. |
 | M3 | **App PIN lock** | Optional 4-digit PIN (and fingerprint) to open the app on this phone. |
 | M4 | **Cloth types & measurement fields** | Shirt and Pant pre-loaded with their own fields. Add/rename/reorder/delete fields per cloth; add new cloth types. Renaming updates everywhere. |
@@ -115,7 +115,7 @@ Status values for orders across the product: **Received → Ready → Delivered*
 ## 5. User stories
 
 **Account & setup**
-- As a shop owner, I want to sign in with my mobile number OTP, so that I don't need to remember a password.
+- As a shop owner, I want to sign in with Google, so that I don't need to remember a password.
 - As a shop owner, I want to sign in with Google or email, so that I can use the account I already have.
 - As a shop owner, I want to reset my password by email, so that I can get back in if I forget it.
 - As a shop owner, I want to choose Gujarati or Hindi on the first screen, so that I understand everything from the start.
@@ -157,9 +157,8 @@ Status values for orders across the product: **Received → Ready → Delivered*
 ### F1 — First-time setup (target: under 3 minutes)
 1. Open app → splash (logo, 1 s).
 2. Welcome slides (3) with language switch at top → **Skip** or **Get started**.
-3. Sign in screen: **Continue with phone** / **Continue with Google** / **Continue with email**.
-   - Phone: enter 10-digit number → receive OTP → enter 6 digits → verified.
-   - Email: enter email + password → (new) confirm email link → signed in.
+3. Sign in screen: **Continue with Google** / **Continue with email**.
+   - Email: enter email + password → (new) enter the 6-digit code from the confirmation email → signed in.
 4. Shop setup: owner name, shop name, shop phone (prefilled), language.
 5. Optional: set 4-digit PIN (can skip).
 6. Choose **Start fresh** or **Try with sample data** → Home. Trial starts (30 days).
@@ -211,7 +210,7 @@ Status values for orders across the product: **Received → Ready → Delivered*
 3. Rename "Chest" → "Chest round" → updates all saved measurements and forms.
 
 ## 7. Screens (canonical list — DESIGN.md must define every one)
-**Auth & onboarding:** S1 Splash · S2 Welcome slides · S3 Sign in (method choice) · S4 Phone number · S5 OTP verify · S6 Email sign in / sign up · S7 Forgot password · S8 Reset password · S9 Shop setup · S10 Set PIN · S11 PIN unlock
+**Auth & onboarding:** S1 Splash · S2 Welcome slides · S3 Sign in (method choice) · ~~S4 Phone number~~ (removed) · S5 Email code verify · S6 Email sign in / sign up · S7 Forgot password · S8 Reset password · S9 Shop setup · S10 Set PIN · S11 PIN unlock
 **Main (tab bar):** S12 Home · S13 Orders · S14 Customers · S15 More
 **Orders:** S16 New order (3-step) · S17 Order detail · S18 Add payment (sheet) · S19 Deliver/balance (dialog) · S20 Share message (sheet)
 **Customers & measurements:** S21 Customer detail (tabs: Measurements, Orders) · S22 Add/edit customer (sheet) · S23 Measurement form (sheet) · S24 Measurement history (sheet)
@@ -240,7 +239,7 @@ Status values for orders across the product: **Received → Ready → Delivered*
 | Risk | Impact | Mitigation |
 |---|---|---|
 | **Google Play policy** requires Play Billing for in-app digital subscriptions | Can't use Razorpay inside the app for the plan | Use Play Billing via RevenueCat (MVP); Razorpay only for a future web checkout |
-| **SMS OTP in India needs DLT** registration (sender ID, template) | Phone sign-in blocked at launch | Start DLT registration in week 1; Google/email sign-in still work |
+| ~~SMS OTP in India needs DLT registration~~ | — | Not applicable: phone OTP sign-in removed (2 Nov 2026) |
 | **Offline sync conflicts / duplicate order numbers** across two phones | Confusing numbers, lost edits | Owner-only (usually one phone); last-write-wins; server renumbers clashes and notifies |
 | **Low-end phones** (2–3 GB RAM) | Slow app, crashes | SQLite local reads, lists virtualised, images compressed, test on a ₹8k device |
 | **Low digital literacy** | Owners abandon after day 1 | Gujarati/Hindi first, big touch targets, sample data, guide, in-person onboarding for first 20 shops |
@@ -259,7 +258,7 @@ Status values for orders across the product: **Received → Ready → Delivered*
 ### Open questions (owner to answer before V1 launch)
 1. **Pricing:** monthly and yearly price for TrueFit Pro (working assumption: ₹199/month, ₹1,999/year)? Any free-forever tier with limits?
 2. **Trial length:** 30 days, or 14 days + extension after first 10 orders?
-3. **SMS provider** for OTP: Twilio Verify (simple, pricier) or MSG91 (cheaper, DLT help)?
+3. ~~**SMS provider** for OTP~~ — resolved 2 Nov 2026: no phone OTP, no SMS provider.
 4. **Expenses:** the prototype had shop expenses; do owners need them in MVP for profit, or is V2 reports enough?
 5. **Data residency:** is a Supabase region in Mumbai (ap-south-1) required by any customer?
 6. **Brand/legal:** registered business name for the Play Store listing and invoices; license is proprietary (confirm).

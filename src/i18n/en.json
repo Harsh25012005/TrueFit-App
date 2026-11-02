@@ -9,7 +9,16 @@
     "search": "Search",
     "increase": "Increase",
     "decrease": "Decrease",
-    "back": "Back"
+    "back": "Back",
+    "next": "Next",
+    "skip": "Skip",
+    "continue": "Continue",
+    "done": "Done",
+    "optional": "optional",
+    "show": "Show",
+    "hide": "Hide",
+    "signOut": "Sign out",
+    "comingSoon": "Coming soon"
   },
   "errors": {
     "generic": "Something went wrong",
@@ -39,7 +48,20 @@
   "pin": {
     "deleteDigit": "Delete digit",
     "enteredDigits": "{{count}} of 4 digits entered",
-    "useFingerprint": "Use fingerprint"
+    "useFingerprint": "Use fingerprint",
+    "createTitle": "Create a 4-digit PIN",
+    "confirmTitle": "Enter the PIN again",
+    "mismatch": "PINs did not match. Try again.",
+    "skip": "Skip for now",
+    "fingerprint": "Unlock with fingerprint",
+    "welcomeBack": "Welcome back, {{name}}",
+    "wrong": "Wrong PIN",
+    "lockedFor": "Too many tries. Wait {{seconds}} s.",
+    "forgot": "Forgot?",
+    "forgotTitle": "Forgot your PIN?",
+    "forgotText": "You will be signed out. Sign in again to set a new PIN.",
+    "biometricPrompt": "Unlock TrueFit",
+    "saved": "PIN saved"
   },
   "tabs": {
     "home": "Home",
@@ -53,5 +75,118 @@
     "discardMessage": "What you entered will be lost.",
     "discard": "Discard",
     "keepEditing": "Keep editing"
+  },
+  "welcome": {
+    "getStarted": "Get started",
+    "languageLabel": "Language",
+    "slide1Title": "Every measurement, safe",
+    "slide1Text": "Save sizes once and find them in seconds — no torn register.",
+    "slide2Title": "Today's work at a glance",
+    "slide2Text": "See what is due, late and ready, and mark it done with one tap.",
+    "slide3Title": "Money and messages",
+    "slide3Text": "Track advances and dues, and tell customers on WhatsApp.",
+    "slideOf": "Slide {{current}} of {{total}}"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign in to TrueFit",
+      "google": "Continue with Google",
+      "email": "Continue with email",
+      "terms": "By continuing you agree to the Terms of Use and Privacy Policy."
+    },
+    "offline": "Connect to the internet to sign in.",
+    "email": {
+      "signInTab": "Sign in",
+      "createTab": "Create account",
+      "email": "Email",
+      "password": "Password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "passwordHint": "At least 8 characters, with letters and numbers",
+      "signInButton": "Sign in",
+      "createButton": "Create account",
+      "forgot": "Forgot password?",
+      "title": "Continue with email"
+    },
+    "verify": {
+      "title": "Enter the code",
+      "sentTo": "We sent a 6-digit code to {{email}}",
+      "codeLabel": "6-digit code",
+      "verify": "Verify",
+      "resend": "Resend code",
+      "resendIn": "Resend in {{time}}",
+      "resent": "New code sent"
+    },
+    "forgot": {
+      "title": "Forgot password",
+      "text": "Enter your email. We'll send a 6-digit code to reset your password.",
+      "send": "Send code",
+      "sent": "Check your email for the code."
+    },
+    "reset": {
+      "title": "New password",
+      "newPassword": "New password",
+      "confirm": "Confirm password",
+      "save": "Save password",
+      "saved": "Password changed"
+    },
+    "errors": {
+      "invalidEmail": "Enter a valid email address",
+      "passwordRule": "Use at least 8 characters with letters and numbers",
+      "passwordsDiffer": "Passwords do not match",
+      "codeFormat": "Enter the 6-digit code",
+      "wrongPassword": "Wrong email or password",
+      "notConfirmed": "Confirm your email first — we sent you a code",
+      "emailExists": "An account with this email already exists. Sign in instead.",
+      "weakPassword": "This password is too easy to guess. Try another.",
+      "codeExpired": "Code expired or wrong — resend a new code",
+      "tooManyTries": "Too many wrong codes. Resend a new code.",
+      "googleUnavailable": "Google sign-in is not available on this phone"
+    }
+  },
+  "shopSetup": {
+    "title": "Your shop",
+    "step": "Step {{current}} of {{total}}",
+    "ownerName": "Your name",
+    "shopName": "Shop name",
+    "shopPhone": "Shop phone",
+    "language": "Language",
+    "startLabel": "How do you want to start?",
+    "startFresh": "Start fresh",
+    "sample": "Try with sample data",
+    "sampleHint": "Sample customers and orders help you learn the app.",
+    "continue": "Continue",
+    "offline": "Connect to the internet to finish setup.",
+    "nameRule": "Enter 2–60 characters",
+    "shopNameRule": "Enter 2–40 characters",
+    "phoneRule": "Enter a 10-digit mobile number"
+  },
+  "home": {
+    "title": "Home",
+    "comingSoon": "Today’s work arrives in a later update."
+  },
+  "orders": {
+    "title": "Orders"
+  },
+  "customers": {
+    "title": "Customers"
+  },
+  "more": {
+    "title": "More",
+    "account": "Account"
+  },
+  "account": {
+    "title": "Account",
+    "signedInWith": "Signed in with {{method}}",
+    "methodEmail": "Email",
+    "methodGoogle": "Google",
+    "signOutTitle": "Sign out?",
+    "signOutText": "Data on this phone will be removed. It stays safe in your account.",
+    "delete": "Delete account",
+    "deleteTitle": "Delete your account?",
+    "deleteText": "Your shop and all its data will be deleted after 7 days. Sign in again within 7 days to cancel.",
+    "deleteTypeLabel": "Type DELETE to confirm",
+    "deleteConfirm": "Delete my account",
+    "deleteScheduled": "Account deletion scheduled"
   }
 }

@@ -9,7 +9,16 @@
     "search": "શોધો",
     "increase": "વધારો",
     "decrease": "ઘટાડો",
-    "back": "પાછળ"
+    "back": "પાછળ",
+    "next": "આગળ",
+    "skip": "છોડો",
+    "continue": "આગળ વધો",
+    "done": "પૂર્ણ",
+    "optional": "વૈકલ્પિક",
+    "show": "બતાવો",
+    "hide": "છુપાવો",
+    "signOut": "સાઇન આઉટ",
+    "comingSoon": "જલદી આવી રહ્યું છે"
   },
   "errors": {
     "generic": "કંઈક ખોટું થયું",
@@ -39,7 +48,20 @@
   "pin": {
     "deleteDigit": "અંક ભૂંસો",
     "enteredDigits": "4 માંથી {{count}} અંક લખ્યા",
-    "useFingerprint": "ફિંગરપ્રિન્ટ વાપરો"
+    "useFingerprint": "ફિંગરપ્રિન્ટ વાપરો",
+    "createTitle": "4 આંકડાનો PIN બનાવો",
+    "confirmTitle": "PIN ફરી લખો",
+    "mismatch": "PIN મેળ ન ખાધો. ફરી પ્રયાસ કરો.",
+    "skip": "હમણાં નહીં",
+    "fingerprint": "ફિંગરપ્રિન્ટથી ખોલો",
+    "welcomeBack": "ફરી સ્વાગત છે, {{name}}",
+    "wrong": "ખોટો PIN",
+    "lockedFor": "ઘણા પ્રયાસ થયા. {{seconds}} સેકન્ડ રાહ જુઓ.",
+    "forgot": "ભૂલી ગયા?",
+    "forgotTitle": "PIN ભૂલી ગયા?",
+    "forgotText": "તમે સાઇન આઉટ થશો. નવો PIN રાખવા ફરી સાઇન ઇન કરો.",
+    "biometricPrompt": "TrueFit ખોલો",
+    "saved": "PIN સેવ થયો"
   },
   "tabs": {
     "home": "હોમ",
@@ -53,5 +75,118 @@
     "discardMessage": "તમે લખેલું બધું જતું રહેશે.",
     "discard": "કાઢી નાખો",
     "keepEditing": "લખવાનું ચાલુ રાખો"
+  },
+  "welcome": {
+    "getStarted": "શરૂ કરો",
+    "languageLabel": "ભાષા",
+    "slide1Title": "દરેક માપ સુરક્ષિત",
+    "slide1Text": "માપ એક વાર સાચવો અને સેકન્ડોમાં શોધો — ફાટેલી બુક નહીં.",
+    "slide2Title": "આજનું કામ એક નજરે",
+    "slide2Text": "શું આપવાનું છે, શું મોડું છે અને શું તૈયાર છે તે જુઓ, એક ટેપમાં પૂરું કરો.",
+    "slide3Title": "પૈસા અને મેસેજ",
+    "slide3Text": "એડવાન્સ અને બાકી રકમ પર નજર રાખો, ગ્રાહકને WhatsApp પર જણાવો.",
+    "slideOf": "{{total}} માંથી સ્લાઇડ {{current}}"
+  },
+  "auth": {
+    "signIn": {
+      "title": "TrueFit માં સાઇન ઇન કરો",
+      "google": "Google થી આગળ વધો",
+      "email": "ઇમેઇલથી આગળ વધો",
+      "terms": "આગળ વધીને તમે ઉપયોગની શરતો અને ગોપનીયતા નીતિ સ્વીકારો છો."
+    },
+    "offline": "સાઇન ઇન કરવા ઇન્ટરનેટ ચાલુ કરો.",
+    "email": {
+      "signInTab": "સાઇન ઇન",
+      "createTab": "એકાઉન્ટ બનાવો",
+      "email": "ઇમેઇલ",
+      "password": "પાસવર્ડ",
+      "showPassword": "પાસવર્ડ બતાવો",
+      "hidePassword": "પાસવર્ડ છુપાવો",
+      "passwordHint": "ઓછામાં ઓછા 8 અક્ષર, અક્ષરો અને આંકડા સાથે",
+      "signInButton": "સાઇન ઇન",
+      "createButton": "એકાઉન્ટ બનાવો",
+      "forgot": "પાસવર્ડ ભૂલી ગયા?",
+      "title": "ઇમેઇલથી આગળ વધો"
+    },
+    "verify": {
+      "title": "કોડ લખો",
+      "sentTo": "અમે {{email}} પર 6 આંકડાનો કોડ મોકલ્યો છે",
+      "codeLabel": "6 આંકડાનો કોડ",
+      "verify": "ચકાસો",
+      "resend": "કોડ ફરી મોકલો",
+      "resendIn": "{{time}} માં ફરી મોકલો",
+      "resent": "નવો કોડ મોકલ્યો"
+    },
+    "forgot": {
+      "title": "પાસવર્ડ ભૂલી ગયા",
+      "text": "તમારો ઇમેઇલ લખો. પાસવર્ડ બદલવા અમે 6 આંકડાનો કોડ મોકલીશું.",
+      "send": "કોડ મોકલો",
+      "sent": "કોડ માટે તમારો ઇમેઇલ જુઓ."
+    },
+    "reset": {
+      "title": "નવો પાસવર્ડ",
+      "newPassword": "નવો પાસવર્ડ",
+      "confirm": "પાસવર્ડ ફરી લખો",
+      "save": "પાસવર્ડ સેવ કરો",
+      "saved": "પાસવર્ડ બદલાયો"
+    },
+    "errors": {
+      "invalidEmail": "સાચો ઇમેઇલ લખો",
+      "passwordRule": "ઓછામાં ઓછા 8 અક્ષર, અક્ષરો અને આંકડા વાપરો",
+      "passwordsDiffer": "પાસવર્ડ મેળ ખાતા નથી",
+      "codeFormat": "6 આંકડાનો કોડ લખો",
+      "wrongPassword": "ઇમેઇલ અથવા પાસવર્ડ ખોટો છે",
+      "notConfirmed": "પહેલા તમારો ઇમેઇલ ચકાસો — અમે કોડ મોકલ્યો છે",
+      "emailExists": "આ ઇમેઇલથી એકાઉન્ટ પહેલેથી છે. સાઇન ઇન કરો.",
+      "weakPassword": "આ પાસવર્ડ સહેલાઈથી ધારી શકાય છે. બીજો વાપરો.",
+      "codeExpired": "કોડ જૂનો અથવા ખોટો છે — નવો કોડ મંગાવો",
+      "tooManyTries": "ઘણા ખોટા કોડ. નવો કોડ મંગાવો.",
+      "googleUnavailable": "આ ફોન પર Google સાઇન ઇન ઉપલબ્ધ નથી"
+    }
+  },
+  "shopSetup": {
+    "title": "તમારી દુકાન",
+    "step": "{{total}} માંથી પગલું {{current}}",
+    "ownerName": "તમારું નામ",
+    "shopName": "દુકાનનું નામ",
+    "shopPhone": "દુકાનનો ફોન",
+    "language": "ભાષા",
+    "startLabel": "કેવી રીતે શરૂ કરવું છે?",
+    "startFresh": "નવેસરથી શરૂ કરો",
+    "sample": "નમૂના ડેટા સાથે જુઓ",
+    "sampleHint": "નમૂના ગ્રાહકો અને ઓર્ડરથી એપ શીખવામાં મદદ મળે છે.",
+    "continue": "આગળ વધો",
+    "offline": "સેટઅપ પૂરું કરવા ઇન્ટરનેટ ચાલુ કરો.",
+    "nameRule": "2–60 અક્ષર લખો",
+    "shopNameRule": "2–40 અક્ષર લખો",
+    "phoneRule": "10 આંકડાનો મોબાઇલ નંબર લખો"
+  },
+  "home": {
+    "title": "હોમ",
+    "comingSoon": "આજનું કામ આગામી અપડેટમાં આવશે."
+  },
+  "orders": {
+    "title": "ઓર્ડર"
+  },
+  "customers": {
+    "title": "ગ્રાહકો"
+  },
+  "more": {
+    "title": "વધુ",
+    "account": "એકાઉન્ટ"
+  },
+  "account": {
+    "title": "એકાઉન્ટ",
+    "signedInWith": "{{method}} થી સાઇન ઇન",
+    "methodEmail": "ઇમેઇલ",
+    "methodGoogle": "Google",
+    "signOutTitle": "સાઇન આઉટ કરવું છે?",
+    "signOutText": "આ ફોનનો ડેટા દૂર થશે. તમારા એકાઉન્ટમાં સુરક્ષિત રહેશે.",
+    "delete": "એકાઉન્ટ કાઢી નાખો",
+    "deleteTitle": "એકાઉન્ટ કાઢી નાખવું છે?",
+    "deleteText": "તમારી દુકાન અને બધો ડેટા 7 દિવસ પછી કાઢી નખાશે. રદ કરવા 7 દિવસમાં ફરી સાઇન ઇન કરો.",
+    "deleteTypeLabel": "પુષ્ટિ કરવા DELETE લખો",
+    "deleteConfirm": "મારું એકાઉન્ટ કાઢી નાખો",
+    "deleteScheduled": "એકાઉન્ટ કાઢવાનું નક્કી થયું"
   }
 }

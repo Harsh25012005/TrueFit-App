@@ -4,6 +4,7 @@ import { getLocales } from 'expo-localization';
 import i18n from 'i18next';
 import { initReactI18next, useTranslation } from 'react-i18next';
 
+import { preferences } from '@/lib/preferences';
 import type { Script } from '@/theme/typography';
 
 import en from './en.json';
@@ -64,8 +65,17 @@ i18n.use(initReactI18next).init({
   initAsync: false,
 });
 
-export function setLanguage(language: Language) {
-  return i18n.changeLanguage(language);
+/** Switches the UI language at once (no restart) and remembers it on this phone (M13, 2.8). */
+export async function setLanguage(language: Language) {
+  await i18n.changeLanguage(language);
+  await preferences.setLanguage(language).catch(() => undefined);
+}
+
+/** Startup: the language chosen earlier on this phone wins over the device language. */
+export async function restoreLanguage(): Promise<Language> {
+  const saved = await preferences.getLanguage().catch(() => null);
+  if (isLanguage(saved) && saved !== i18n.language) await i18n.changeLanguage(saved);
+  return currentLanguage();
 }
 
 export function currentLanguage(): Language {

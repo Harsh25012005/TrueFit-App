@@ -6,7 +6,7 @@
 | Service | Purpose | Phase | Runs where | Wrapper |
 |---|---|---|---|---|
 | Supabase | DB, Auth, functions, storage | MVP | Cloud | `src/lib/supabase.ts`, `src/features/auth/auth.service.ts`, `src/sync/*` |
-| Twilio Verify | Phone OTP SMS | MVP | Called by Supabase Auth | Supabase Auth config (no app code) |
+| ~~Twilio Verify~~ | ~~Phone OTP SMS~~ | Removed 2 Nov 2026 | — | — |
 | Google Sign-In | Google login | MVP | Phone SDK → Supabase | `src/lib/google.ts` |
 | Resend (SMTP) | Auth emails | MVP | Called by Supabase Auth | Supabase Auth SMTP settings |
 | RevenueCat + Google Play Billing | Subscriptions | MVP | Phone SDK + webhook | `src/features/subscription/purchases.service.ts`, `supabase/functions/revenuecat-webhook` |
@@ -28,7 +28,7 @@
 - **Fallback:** app works offline; outbox waits. Status page alert to on-call.
 - **Testing:** local stack (`npm run db:start`), pgTAP, a separate **dev** cloud project; never test on prod.
 
-## 2. Twilio Verify (phone OTP)
+## 2. Twilio Verify (phone OTP) — removed 2 Nov 2026, not used
 - **Why:** reliable Indian SMS delivery with DLT-registered routes and fraud guard; native Supabase provider.
 - **Env:** none in the app. In Supabase → Auth → Phone: Account SID, Auth Token, Verify Service SID (dashboard secrets).
 - **SDK:** none (Supabase Auth calls Twilio).

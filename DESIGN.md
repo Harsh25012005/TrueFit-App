@@ -180,13 +180,13 @@ All screens: background `background`, side padding 16, content max widths per br
 |---|---|---|
 | S1 | Splash | Centred logo mark 64 + wordmark `display` + tagline `body` muted. 900 ms, fades. |
 | S2 | Welcome slides | Top: logo + "TrueFit" + language segmented (EN/ગુ/हि). Middle: 104 icon tile (`primary-subtle`), title `display`, text `body` muted. Bottom: dots (active = 22 wide bar), buttons **Skip** (secondary) + **Next/Get started** (primary). |
-| S3 | Sign in | Logo, title "Sign in to TrueFit", three full-width buttons: Continue with phone (primary), Continue with Google (secondary with G icon), Continue with email (secondary). Terms/privacy links `caption`. |
-| S4 | Phone number | Back, title, Phone input (+91), primary **Send OTP** (loading while sending). Error: invalid number / too many attempts. |
-| S5 | OTP verify | 6 boxes (48×56, radius 4), auto-advance, paste support, resend timer "Resend in 0:45", primary **Verify**. |
+| S3 | Sign in | Logo, title "Sign in to TrueFit", two full-width buttons: Continue with Google (primary, G icon), Continue with email (secondary). Terms/privacy links `caption`. |
+| S4 | ~~Phone number~~ | Removed 2 Nov 2026 (no phone OTP sign-in). |
+| S5 | Email code verify | Used after sign-up and for password reset. 6 boxes (48×56, radius 4), auto-advance, paste support, resend timer "Resend in 0:45", primary **Verify**. |
 | S6 | Email | Tabs Sign in / Create account (segmented); email, password (show/hide), primary button, "Forgot password?" link. |
-| S7 | Forgot password | Email input, primary **Send reset link**, success banner "Check your email". |
-| S8 | Reset password | New password + confirm, strength hint, primary **Save password** (opened from email deep link). |
-| S9 | Shop setup | Title "Your shop", fields: Your name, Shop name, Shop phone, Language; primary **Continue**; step indicator 1/2. |
+| S7 | Forgot password | Email input, primary **Send code**, then S5 to enter the 6-digit reset code. |
+| S8 | Reset password | New password + confirm, strength hint, primary **Save password** (opened after the reset code is verified on S5). |
+| S9 | Shop setup | Title "Your shop", fields: Your name, Shop name, Shop phone, Language; below them a two-option choice (PRD F1 step 6): **Start fresh** (default) / **Try with sample data** — a Segmented control with a one-line `caption` hint; primary **Continue**; step indicator 1/2. |
 | S10 | Set PIN | PIN pad, "Create a 4-digit PIN", then confirm; **Skip for now** ghost. Fingerprint toggle if available. |
 | S11 | PIN unlock | Logo 64, "Welcome back, {name}", shop name muted, dots, PIN pad, "Forgot?" (signs out and requires full sign-in). |
 | S12 | Home | Header (logo, greeting, shop · date, search, bell). **Today** summary card (3 columns: Collected in `primary`, New orders, Delivered). Two buttons: **New order** (primary, 1.4 fr) + **Measure** (secondary). Section "Today's work" (list card: name #no, items · due label, trailing action button Ready/Deliver). Empty: "All caught up". Quick links list card: Coming up this week, Ready to give, Reminders (V2), To collect. Trial banner (last 5 days). |

@@ -10,7 +10,7 @@
 | _screenshot: docs/screenshots/home.png_ | _screenshot: docs/screenshots/orders.png_ | _screenshot: docs/screenshots/new-order.png_ | _screenshot: docs/screenshots/customer.png_ |
 
 ## Features (MVP — see [PRD.md](PRD.md) §4.1)
-- Sign in with email + password, mobile OTP or Google; optional app PIN / fingerprint.
+- Sign in with email + password or Google; optional app PIN / fingerprint.
 - Shop setup in English, ગુજરાતી or हिन्दी, with optional sample data.
 - Cloth types (Shirt, Pant, your own) with their own measurement fields.
 - Customers with book number, search and dues filter.

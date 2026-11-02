@@ -384,3 +384,22 @@ export const syncCursors = sqliteTable('sync_cursors', {
   cursorId: text('cursor_id').notNull(),
   ...timestamps,
 });
+
+/** Every device table, children before parents, so sign-out deletes respect foreign keys. */
+export const WIPE_ORDER = [
+  'outbox',
+  'sync_cursors',
+  'payments',
+  'order_extras',
+  'order_items',
+  'orders',
+  'measurement_versions',
+  'measurement_values',
+  'measurements',
+  'customers',
+  'measurement_fields',
+  'garment_types',
+  'subscriptions',
+  'shops',
+  'profiles',
+] as const;

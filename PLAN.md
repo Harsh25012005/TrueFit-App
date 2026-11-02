@@ -32,15 +32,15 @@ Legend: **Files** = main files touched · **Verify** = how to prove it works · 
 **DoD:** server schema matches DATABASE.md, RLS tests pass, device DB created on launch.
 
 ## Phase 2 — Auth & onboarding (M1, M2, M3, M13)
-- [ ] **2.1 Supabase client + SecureStore session** — Files: `src/lib/supabase.ts`, `secureStorage.ts`, `src/stores/session.store.ts`. Verify: session survives app restart (unit test with mocked storage). Deps: 1.6
-- [ ] **2.2 Welcome + sign-in choice (S2, S3)** — Verify: screens match DESIGN.md §7. Deps: 0.7
-- [ ] **2.3 Email sign-up/sign-in + verify code (S6, S5)** — Files: `src/features/auth/*`, `app/(auth)/*`. Verify: sign up with local Inbucket email code, sign in. Deps: 2.1
+- [x] **2.1 Supabase client + SecureStore session** — Files: `src/lib/supabase.ts`, `secureStorage.ts`, `src/stores/session.store.ts`. Verify: session survives app restart (unit test with mocked storage). Deps: 1.6
+- [x] **2.2 Welcome + sign-in choice (S2, S3)** — Verify: screens match DESIGN.md §7. Deps: 0.7
+- [x] **2.3 Email sign-up/sign-in + verify code (S6, S5)** — Files: `src/features/auth/*`, `app/(auth)/*`. Verify: sign up with local Inbucket email code, sign in. Deps: 2.1
 - [ ] **2.4 Forgot/reset password (S7, S8)** — Verify: reset via code; old password fails. Deps: 2.3
-- [ ] **2.5 Phone OTP (S4, S5)** — Verify: local test OTP (`config.toml` test numbers) signs in. Deps: 2.1
+- ~~**2.5 Phone OTP (S4, S5)**~~ — removed 2 Nov 2026 (PRD M1: email + Google only).
 - [ ] **2.6 Google sign-in** — Files: `src/lib/google.ts`. Verify: dev build signs in with a test Google account. Deps: 2.1
-- [ ] **2.7 Shop setup (S9) + `create_shop`** — Verify: new user lands on Home after setup; shop, trial, Shirt/Pant rows exist. Deps: 2.3, 1.4
-- [ ] **2.8 Language choice persisted** — Verify: language survives restart and is saved to `profiles.language`. Deps: 0.5, 2.7
-- [ ] **2.9 PIN set/unlock + fingerprint (S10, S11)** — Files: `src/features/auth/pin.ts`. Verify: PIN hashed (SHA-256 + salt) in SecureStore; 5 wrong tries → 30 s lock. Deps: 2.7
+- [x] **2.7 Shop setup (S9) + `create_shop`** — Verify: new user lands on Home after setup; shop, trial, Shirt/Pant rows exist. Deps: 2.3, 1.4
+- [x] **2.8 Language choice persisted** — Verify: language survives restart and is saved to `profiles.language`. Deps: 0.5, 2.7
+- [x] **2.9 PIN set/unlock + fingerprint (S10, S11)** — Files: `src/features/auth/pin.ts`. Verify: PIN hashed (SHA-256 + salt) in SecureStore; 5 wrong tries → 30 s lock. Deps: 2.7
 - [ ] **2.10 Route gate** — Files: `app/index.tsx`, `app/(app)/_layout.tsx`. Verify: Maestro flow `e2e/auth.yaml`: fresh install → sign up → setup → Home; relaunch → PIN → Home. Deps: 2.7, 2.9
 - [ ] **2.11 Sign out + delete account (S29) + `delete-account` function** — Verify: sign out clears local DB; delete schedules purge. Deps: 2.10
 
@@ -111,7 +111,7 @@ Legend: **Files** = main files touched · **Verify** = how to prove it works · 
 - [ ] **10.5 Performance pass** (cold start < 2.5 s on mid phone, lists 60 fps with 5,000 orders) — Deps: all
 
 ## Phase 11 — Launch
-- [ ] **11.1 Production Supabase project (ap-south-1), secrets, SMTP, Twilio, Google, backups** — Verify: AUTH_SECURITY.md checklist.
+- [ ] **11.1 Production Supabase project (ap-south-1), secrets, SMTP, Google, backups** — Verify: AUTH_SECURITY.md checklist.
 - [ ] **11.2 Privacy policy, terms, Data safety form, store listing (EN/GU/HI)**
 - [ ] **11.3 Internal testing track → closed test with 5–10 tailors**
 - [ ] **11.4 Fix top issues, production release**

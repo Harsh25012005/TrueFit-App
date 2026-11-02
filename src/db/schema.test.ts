@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 import journal from './migrations/meta/_journal.json';
+import { WIPE_ORDER } from './schema';
 
 /** Applies the generated device migrations to an in-memory SQLite, like the app does on launch. */
 function migratedDb() {
@@ -52,6 +53,40 @@ describe('device SQLite schema (DATABASE.md §2 mirror)', () => {
         'sync_cursors',
       ].sort(),
     );
+  });
+
+  it('sign-out wipe covers every table in a foreign-key-safe order', () => {
+    const db = migratedDb();
+    const tables = db
+      .prepare(
+        `select name from sqlite_master where type = 'table' and name not like 'sqlite_%' and name not like '__drizzle%'`,
+      )
+      .all()
+      .map((r) => (r as { name: string }).name);
+    expect([...WIPE_ORDER].sort()).toEqual(tables.sort());
+    insert(db, 'customers', { id: 'c1', shop_id: 's1', name: 'Amit', phone: '9824012345', ...ts });
+    insert(db, 'garment_types', { id: 'g1', shop_id: 's1', name: 'Shirt', ...ts });
+    insert(db, 'orders', {
+      id: 'o1',
+      shop_id: 's1',
+      customer_id: 'c1',
+      order_no: 1,
+      order_date: '2026-11-01',
+      due_date: '2026-11-02',
+      ...ts,
+    });
+    insert(db, 'order_items', {
+      id: 'i1',
+      shop_id: 's1',
+      order_id: 'o1',
+      garment_type_id: 'g1',
+      qty: 1,
+      rate: 1,
+      ...ts,
+    });
+    expect(() => {
+      for (const table of WIPE_ORDER) db.exec(`delete from ${table}`);
+    }).not.toThrow();
   });
 
   describe('constraints match the server', () => {

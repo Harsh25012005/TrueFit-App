@@ -28,3 +28,5 @@ export { Stepper, type StepperProps } from './Stepper';
 export { Switch, type SwitchProps } from './Switch';
 export { TabBar, TABS, type TabBarProps, type TabItem, type TabKey } from './TabBar';
 export { TopBar, type TopBarProps } from './TopBar';
+export { LogoMark, Wordmark } from './Logo';
+export { CodeInput, type CodeInputProps } from './CodeInput';

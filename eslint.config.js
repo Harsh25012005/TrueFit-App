@@ -31,7 +31,8 @@ const COLOUR_LITERALS = [
 module.exports = defineConfig([
   expoConfig,
   {
-    ignores: ['dist/*', '.expo/*', 'android/*', 'coverage/*', 'src/types/supabase.ts'],
+    // supabase/functions is Deno code (checked with `deno check`, not the app's TypeScript).
+    ignores: ['dist/*', '.expo/*', 'android/*', 'coverage/*', 'src/types/supabase.ts', 'supabase/functions/**'],
   },
   {
     files: ['**/*.{ts,tsx}'],

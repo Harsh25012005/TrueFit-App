@@ -9,7 +9,16 @@
     "search": "खोजें",
     "increase": "बढ़ाएं",
     "decrease": "घटाएं",
-    "back": "पीछे"
+    "back": "पीछे",
+    "next": "आगे",
+    "skip": "छोड़ें",
+    "continue": "आगे बढ़ें",
+    "done": "हो गया",
+    "optional": "वैकल्पिक",
+    "show": "दिखाएं",
+    "hide": "छिपाएं",
+    "signOut": "साइन आउट",
+    "comingSoon": "जल्द आ रहा है"
   },
   "errors": {
     "generic": "कुछ गलत हो गया",
@@ -39,7 +48,20 @@
   "pin": {
     "deleteDigit": "अंक मिटाएं",
     "enteredDigits": "4 में से {{count}} अंक डाले",
-    "useFingerprint": "फ़िंगरप्रिंट इस्तेमाल करें"
+    "useFingerprint": "फ़िंगरप्रिंट इस्तेमाल करें",
+    "createTitle": "4 अंकों का PIN बनाएं",
+    "confirmTitle": "PIN दोबारा डालें",
+    "mismatch": "PIN मेल नहीं खाया। फिर से कोशिश करें।",
+    "skip": "अभी नहीं",
+    "fingerprint": "फ़िंगरप्रिंट से खोलें",
+    "welcomeBack": "फिर से स्वागत है, {{name}}",
+    "wrong": "गलत PIN",
+    "lockedFor": "बहुत कोशिशें। {{seconds}} सेकंड रुकें।",
+    "forgot": "भूल गए?",
+    "forgotTitle": "PIN भूल गए?",
+    "forgotText": "आप साइन आउट हो जाएंगे। नया PIN रखने के लिए फिर से साइन इन करें।",
+    "biometricPrompt": "TrueFit खोलें",
+    "saved": "PIN सेव हो गया"
   },
   "tabs": {
     "home": "होम",
@@ -53,5 +75,118 @@
     "discardMessage": "आपने जो लिखा है वह मिट जाएगा।",
     "discard": "हटाएं",
     "keepEditing": "लिखना जारी रखें"
+  },
+  "welcome": {
+    "getStarted": "शुरू करें",
+    "languageLabel": "भाषा",
+    "slide1Title": "हर नाप सुरक्षित",
+    "slide1Text": "नाप एक बार सेव करें और सेकंडों में ढूँढें — फटा रजिस्टर नहीं।",
+    "slide2Title": "आज का काम एक नज़र में",
+    "slide2Text": "क्या देना है, क्या लेट है और क्या तैयार है देखें, एक टैप में पूरा करें।",
+    "slide3Title": "पैसा और मैसेज",
+    "slide3Text": "एडवांस और बाकी रकम पर नज़र रखें, ग्राहक को WhatsApp पर बताएं।",
+    "slideOf": "{{total}} में से स्लाइड {{current}}"
+  },
+  "auth": {
+    "signIn": {
+      "title": "TrueFit में साइन इन करें",
+      "google": "Google से आगे बढ़ें",
+      "email": "ईमेल से आगे बढ़ें",
+      "terms": "आगे बढ़कर आप उपयोग की शर्तें और गोपनीयता नीति स्वीकार करते हैं।"
+    },
+    "offline": "साइन इन करने के लिए इंटरनेट चालू करें।",
+    "email": {
+      "signInTab": "साइन इन",
+      "createTab": "खाता बनाएं",
+      "email": "ईमेल",
+      "password": "पासवर्ड",
+      "showPassword": "पासवर्ड दिखाएं",
+      "hidePassword": "पासवर्ड छिपाएं",
+      "passwordHint": "कम से कम 8 अक्षर, अक्षर और अंक दोनों",
+      "signInButton": "साइन इन",
+      "createButton": "खाता बनाएं",
+      "forgot": "पासवर्ड भूल गए?",
+      "title": "ईमेल से आगे बढ़ें"
+    },
+    "verify": {
+      "title": "कोड डालें",
+      "sentTo": "हमने {{email}} पर 6 अंकों का कोड भेजा है",
+      "codeLabel": "6 अंकों का कोड",
+      "verify": "जाँचें",
+      "resend": "कोड दोबारा भेजें",
+      "resendIn": "{{time}} में दोबारा भेजें",
+      "resent": "नया कोड भेजा गया"
+    },
+    "forgot": {
+      "title": "पासवर्ड भूल गए",
+      "text": "अपना ईमेल डालें। पासवर्ड बदलने के लिए हम 6 अंकों का कोड भेजेंगे।",
+      "send": "कोड भेजें",
+      "sent": "कोड के लिए अपना ईमेल देखें।"
+    },
+    "reset": {
+      "title": "नया पासवर्ड",
+      "newPassword": "नया पासवर्ड",
+      "confirm": "पासवर्ड दोबारा डालें",
+      "save": "पासवर्ड सेव करें",
+      "saved": "पासवर्ड बदल गया"
+    },
+    "errors": {
+      "invalidEmail": "सही ईमेल डालें",
+      "passwordRule": "कम से कम 8 अक्षर, अक्षर और अंक दोनों रखें",
+      "passwordsDiffer": "पासवर्ड मेल नहीं खाते",
+      "codeFormat": "6 अंकों का कोड डालें",
+      "wrongPassword": "ईमेल या पासवर्ड गलत है",
+      "notConfirmed": "पहले अपना ईमेल पक्का करें — हमने कोड भेजा है",
+      "emailExists": "इस ईमेल से खाता पहले से है। साइन इन करें।",
+      "weakPassword": "यह पासवर्ड आसानी से अंदाज़ा लगाया जा सकता है। दूसरा रखें।",
+      "codeExpired": "कोड पुराना या गलत है — नया कोड मँगाएं",
+      "tooManyTries": "बहुत सारे गलत कोड। नया कोड मँगाएं।",
+      "googleUnavailable": "इस फ़ोन पर Google साइन इन उपलब्ध नहीं है"
+    }
+  },
+  "shopSetup": {
+    "title": "आपकी दुकान",
+    "step": "{{total}} में से चरण {{current}}",
+    "ownerName": "आपका नाम",
+    "shopName": "दुकान का नाम",
+    "shopPhone": "दुकान का फ़ोन",
+    "language": "भाषा",
+    "startLabel": "कैसे शुरू करना है?",
+    "startFresh": "नए सिरे से शुरू करें",
+    "sample": "नमूना डेटा के साथ देखें",
+    "sampleHint": "नमूना ग्राहक और ऑर्डर से ऐप सीखने में मदद मिलती है।",
+    "continue": "आगे बढ़ें",
+    "offline": "सेटअप पूरा करने के लिए इंटरनेट चालू करें।",
+    "nameRule": "2–60 अक्षर डालें",
+    "shopNameRule": "2–40 अक्षर डालें",
+    "phoneRule": "10 अंकों का मोबाइल नंबर डालें"
+  },
+  "home": {
+    "title": "होम",
+    "comingSoon": "आज का काम अगले अपडेट में आएगा।"
+  },
+  "orders": {
+    "title": "ऑर्डर"
+  },
+  "customers": {
+    "title": "ग्राहक"
+  },
+  "more": {
+    "title": "और",
+    "account": "खाता"
+  },
+  "account": {
+    "title": "खाता",
+    "signedInWith": "{{method}} से साइन इन",
+    "methodEmail": "ईमेल",
+    "methodGoogle": "Google",
+    "signOutTitle": "साइन आउट करें?",
+    "signOutText": "इस फ़ोन का डेटा हटेगा। आपके खाते में सुरक्षित रहेगा।",
+    "delete": "खाता हटाएं",
+    "deleteTitle": "खाता हटाना है?",
+    "deleteText": "आपकी दुकान और सारा डेटा 7 दिन बाद हट जाएगा। रद्द करने के लिए 7 दिन में फिर से साइन इन करें।",
+    "deleteTypeLabel": "पक्का करने के लिए DELETE लिखें",
+    "deleteConfirm": "मेरा खाता हटाएं",
+    "deleteScheduled": "खाता हटाना तय हो गया"
   }
 }

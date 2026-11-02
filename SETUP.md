@@ -95,5 +95,5 @@ npm run test:e2e       # Maestro flows (app installed + emulator running)
 | 10 | `No development build installed` when running `npm run dev` | Run `npm run android` once (or install the APK from `npm run build:dev`). Expo Go is not supported (native modules). |
 | 11 | Windows: `Filename longer than 260 characters` during build | Move the project to a short path like `C:\dev\truefit`, enable long paths: `git config --system core.longpaths true`. |
 | 12 | `supabase test db` → `extension "pgtap" does not exist` | Start each test file with `create extension if not exists pgtap with schema extensions;` (template in TESTING.md) and make sure `npm run db:start` is running. |
-| 13 | Phone OTP never arrives locally | Use the test numbers/OTPs set under `[auth.sms.test_otp]` in `supabase/config.toml`; real SMS needs Twilio credentials. |
+| 13 | Email code never arrives locally | Open the local inbox (Inbucket/Mailpit) at http://127.0.0.1:54324. |
 | 14 | Emulator very slow / won't start on Linux | Enable KVM (`ls /dev/kvm`), use an x86_64 system image, give it 4 GB RAM. |

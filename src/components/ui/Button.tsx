@@ -81,6 +81,8 @@ export interface ButtonProps {
   loading?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
+  /** Where a non-full-width button sits in its column (default: start). */
+  align?: 'flex-start' | 'center' | 'flex-end';
   accessibilityLabel?: string;
   accessibilityHint?: string;
   testID?: string;
@@ -95,6 +97,7 @@ export function Button({
   loading = false,
   disabled = false,
   fullWidth = false,
+  align = 'flex-start',
   accessibilityLabel,
   accessibilityHint,
   testID,
@@ -115,7 +118,7 @@ export function Button({
       accessibilityLabel={accessibilityLabel ?? label}
       accessibilityHint={accessibilityHint}
       accessibilityState={{ disabled: inactive, busy: loading }}
-      style={fullWidth ? { alignSelf: 'stretch' } : { alignSelf: 'flex-start' }}
+      style={{ alignSelf: fullWidth ? 'stretch' : align }}
     >
       <View
         testID={testID ? `${testID}-body` : undefined}

@@ -31,7 +31,7 @@
 |---|---|
 | Auth: sign-up / sign-in with password | 30 per 5 min per IP (Supabase default, configured in `config.toml`) |
 | Auth: email OTP / magic link / recovery | 1 per 60 s per email; 30 emails/hour project-wide (custom SMTP raises it) |
-| Auth: phone OTP send | 1 per 60 s per phone; 5 per hour per phone; Twilio Verify fraud guard on |
+| ~~Auth: phone OTP send~~ | Removed 2 Nov 2026 (no phone sign-in) |
 | Auth: OTP verify | 30 per 5 min per IP |
 | Auth: token refresh | 150 per 5 min per IP |
 | REST + RPC | No Supabase-side per-user limit; client caps sync to 1 push + 1 pull per 5 s; DB statement timeout 8 s for `authenticated` |
@@ -79,12 +79,11 @@ Exceeding a limit returns **429** with `RATE_LIMITED`.
 ```
 Confirmation email sent (6-digit code). Errors: 400 `VALIDATION_FAILED` (weak password: <8 chars or breached), 409 `CONFLICT` (`user_already_exists`), 429.
 
-### 1.2 Verify email / phone OTP
+### 1.2 Verify email code
 `POST /auth/v1/verify` · **anon**
 ```json
 { "type": "signup", "email": "owner@shop.in", "token": "482913" }   // email confirm
 { "type": "email",  "email": "owner@shop.in", "token": "482913" }   // email OTP / magic code sign-in
-{ "type": "sms",    "phone": "+919824000000", "token": "482913" }   // phone OTP
 { "type": "recovery", "email": "owner@shop.in", "token": "482913" } // reset password
 // 200
 { "access_token": "eyJ…", "token_type": "bearer", "expires_in": 3600, "refresh_token": "v1.Mr…", "user": { "id": "0b6…" } }
@@ -94,7 +93,7 @@ Errors: 401 `UNAUTHENTICATED` (`otp_expired`, wrong code), 429.
 ### 1.3 Sign in with password
 `POST /auth/v1/token?grant_type=password` · **anon** — `{ "email": "...", "password": "..." }` → 200 session (as 1.2). Errors: 400 `email_not_confirmed`, 401 `invalid_credentials`, 429.
 
-### 1.4 Request OTP (email magic code or phone SMS)
+### 1.4 Request OTP — not used in MVP (passwordless email code and phone SMS are out of scope, 2 Nov 2026)
 `POST /auth/v1/otp` · **anon**
 ```json
 { "email": "owner@shop.in", "create_user": true }

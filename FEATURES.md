@@ -20,13 +20,13 @@ Common states for every screen: **loading** = Skeleton rows (never spinners on l
 - **Acceptance:** [ ] all three files have identical keys (unit test) [ ] ₹1,25,000 lakh grouping [ ] switch applies without restart [ ] Noto fonts render GU/HI.
 
 ## M1 — Sign-in & account
-- **What:** Email+password, mobile OTP, Google; reset password; sign out; delete account.
-- **Story:** As an owner I want to sign in with my mobile number so I don't need to remember a password.
-- **Screens:** S2–S8, S29; components PhoneInput, Input, Button, OTP boxes.
+- **What:** Email+password, Google; reset password with a 6-digit email code; sign out; delete account. (Phone OTP removed 2 Nov 2026.)
+- **Story:** As an owner I want to sign in with Google so I don't need to remember a password.
+- **Screens:** S2, S3, S5–S8, S29; components Input, Button, code boxes.
 - **Data:** `auth.users`, `profiles` · API §1, 2.6.
-- **Steps:** client + session storage → email flow → reset → phone OTP → Google → sign out → delete account.
-- **Validation:** email format; password ≥ 8 chars with a letter and a number; phone `^[6-9]\d{9}$`; OTP 6 digits.
-- **Edge cases:** OTP resend after 60 s timer; wrong OTP 5× → wait message; expired code; email not confirmed → resend; Google cancelled → stay silent; offline → "Connect to internet to sign in"; account exists with another method → show which.
+- **Steps:** client + session storage → email flow → reset → Google → sign out → delete account.
+- **Validation:** email format; password ≥ 8 chars with a letter and a number; email code 6 digits.
+- **Edge cases:** code resend after 60 s timer; wrong code 5× → wait message; expired code; email not confirmed → resend; Google cancelled → stay silent; offline → "Connect to internet to sign in"; account exists with another method → show which.
 - **Loading/error:** button spinner + disabled; errors under the field, not toasts.
 - **Acceptance:** [ ] each method signs in on a dev build [ ] session persists after restart [ ] refresh works after 1 h [ ] reset password works [ ] delete account requires typing DELETE and signs out.
 
@@ -43,7 +43,7 @@ Common states for every screen: **loading** = Skeleton rows (never spinners on l
 - **What:** Optional 4-digit PIN + fingerprint when opening the app.
 - **Screens:** S10, S11; PinPad; `expo-local-authentication`, `expo-secure-store`, `expo-crypto`.
 - **Data:** device only (no table, no endpoint).
-- **Edge cases:** 5 wrong tries → 30 s wait, doubling; "Forgot PIN" → sign in again (clears PIN); app backgrounded > 2 min → lock; fingerprint not enrolled → hide option.
+- **Edge cases:** 5 wrong tries → 30 s wait, doubling; "Forgot PIN" → sign in again (clears PIN); app backgrounded > 5 min → lock (DESIGN.md §8.10); fingerprint not enrolled → hide option.
 - **Acceptance:** [ ] PIN never stored in plain text [ ] lock after background timeout [ ] fingerprint unlock [ ] forgot PIN path.
 
 ## M4 — Cloth types & measurement fields
